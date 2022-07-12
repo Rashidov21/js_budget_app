@@ -1,1 +1,2 @@
-# myshop
+### Javascript DOM Budget *Application*
+ 
