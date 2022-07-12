@@ -46,17 +46,12 @@ function mainApp() {
 
     if (JSON.parse(localStorage.getItem("expends"))) {
         let expends = JSON.parse(localStorage.getItem("expends"))
-    } else {
-        let expends = localStorage.setItem("expends", JSON.stringify([]))
-    }
-
-    let list = document.querySelector("#expendList")
-    let totalExpend = 0
-    for (let item of expends) {
-        totalExpend += parseInt(item.cost)
-        let li = document.createElement("li")
-        li.className = "list-group-item d-flex justify-content-between align-items-start"
-        li.innerHTML = `
+        let list = document.querySelector("#expendList")
+        for (let item of expends) {
+            totalExpend += parseInt(item.cost)
+            let li = document.createElement("li")
+            li.className = "list-group-item d-flex justify-content-between align-items-start"
+            li.innerHTML = `
         <div class="ms-2 me-auto">
             <div class="fw-bold">
                 ${item.desc}
@@ -65,8 +60,13 @@ function mainApp() {
         </div>
         <span class="badge bg-primary badge-lg rounded-pill fs-5">$ ${item.cost}</span>
         `
-        list.appendChild(li)
+            list.appendChild(li)
+        }
+    } else {
+        let expends = localStorage.setItem("expends", JSON.stringify([]))
     }
+
+    let totalExpend = 0
     document.querySelector("#totalExpend").innerText = totalExpend
 
 }
