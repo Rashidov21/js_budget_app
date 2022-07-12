@@ -8,6 +8,16 @@
 
 // console.log(typeof localStorage)
 // localStorage.setItem("expends", JSON.stringify([]))
+// localStorage.setItem("budget", 0)
+// localStorage.removeItem("budget")
+function budget() {
+    let newValue = document.querySelector("#budgetValue").value
+    let budget = parseInt(JSON.parse(localStorage.getItem("budget")))
+    budget = parseInt(newValue)
+    localStorage.setItem("budget", budget)
+}
+
+
 function addExpendToStorage() {
     let cost = document.querySelector("#expendValue").value
     let desc = document.querySelector("#expendDesc").value
@@ -23,8 +33,18 @@ function addExpendToStorage() {
 }
 // localStorage.clear() //- butunlay tozalash
 
+function addIncomeToStorage() {
+
+}
+
+
 
 function mainApp() {
+    // budget show 
+    let bdg = document.querySelector("#budget")
+    bdg.innerHTML = localStorage.getItem("budget")
+
+
     let expends = JSON.parse(localStorage.getItem("expends"))
     let list = document.querySelector("#expendList")
     let totalExpend = 0
