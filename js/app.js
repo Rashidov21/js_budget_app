@@ -43,7 +43,7 @@ function mainApp() {
     // budget show 
     let bdg = document.querySelector("#budget")
     bdg.innerHTML = localStorage.getItem("budget")
-
+    let totalExpend = 0
     if (JSON.parse(localStorage.getItem("expends"))) {
         let expends = JSON.parse(localStorage.getItem("expends"))
         let list = document.querySelector("#expendList")
@@ -66,7 +66,7 @@ function mainApp() {
         let expends = localStorage.setItem("expends", JSON.stringify([]))
     }
 
-    let totalExpend = 0
+
     document.querySelector("#totalExpend").innerText = totalExpend
 
 }
